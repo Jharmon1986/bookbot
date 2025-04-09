@@ -1,8 +1,8 @@
 def accept_book_text(file_contents):
     #this function accepts the book text and gets a word count
     word_count = len(file_contents.split())
-    print(f"{word_count} words found in the document.")
-    return file_contents  # Return the book text as a string
+    print(f"Found {word_count} total words.")
+    return word_count  # Return the word count
 
 def text_to_char(file_contents):
     #This function takes the book text and converts it to the number of times each character appears in the text
