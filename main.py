@@ -4,9 +4,6 @@ def get_book_text(filepath):
         file_contents = file.read()
     return file_contents
 
-from stats import accept_book_text #imports accept_book_text function from stats.py
-from stats import text_to_char #imports text_to_char function from stats.py
-
 def print_report(path, word_count, sorted_chars):
     # Print the full formatted report
     print("============ BOOKBOT ============")
@@ -23,15 +20,27 @@ def print_report(path, word_count, sorted_chars):
     
     print("============= END ===============")
 
+from stats import accept_book_text, text_to_char, sort_chars  # Import sort_chars
+
 def main():
     # Specify the relative path to the book file
     relative_path = 'books/frankenstein.txt'  # Adjust this if the file is in a subdirectory
-    # Call the get_book_text function to read the file's content
+    
+    # Read the file's content
     book_text = get_book_text(relative_path)
-    # Pass the book text to accept_book_text to process it
+    
+    # Get word count
     word_count = accept_book_text(book_text)
-    char_count = text_to_char(book_text)  # Call the text_to_char function to process the book text
-    print(char_count)
+    
+    # Get character counts
+    char_count = text_to_char(book_text)
+    
+    # Sort the character counts
+    sorted_chars = sort_chars(char_count)
+    
+    # Print the formatted report
+    print_report(relative_path, word_count, sorted_chars)
+
 if __name__ == '__main__':
     main()
 

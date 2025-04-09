@@ -14,3 +14,13 @@ def text_to_char(file_contents):
         else:
             char_count[char] = 1
     return char_count  # Return the character count as a dictionary
+
+def sort_chars(char_count):
+    # Create a list of dictionaries from the char_count dictionary
+    char_list = [{"char": char, "count": count} for char, count in char_count.items()]
+    
+    # Sort the list of dictionaries by the count, in descending order
+    char_list.sort(key=lambda x: x["count"], reverse=True)
+    
+    # Return the sorted list of character dictionaries
+    return char_list
