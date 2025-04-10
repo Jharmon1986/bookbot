@@ -1,3 +1,11 @@
+import sys
+
+#Check if user provided book path as argument
+if len(sys.argv) !=2:
+    print("Usage: python3 main.py <path_to_book>")
+    sys.exit(1)
+
+    
 def get_book_text(filepath):
     # This function reads the content of a book file and returns it as a string.
     with open(filepath, 'r') as file:
@@ -24,7 +32,7 @@ from stats import accept_book_text, text_to_char, sort_chars  # Import sort_char
 
 def main():
     # Specify the relative path to the book file
-    relative_path = 'books/frankenstein.txt'  # Adjust this if the file is in a subdirectory
+    relative_path = sys.argv[1]  # Get the book path from command line argument
     
     # Read the file's content
     book_text = get_book_text(relative_path)
